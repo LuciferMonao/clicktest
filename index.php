@@ -10,6 +10,7 @@
     <body>
         <div id="click" unselectable="on">
             <h1 id="display" unselectable="on">Click here...</h1>
+            <h2>Average: <p id=average>0</p></h2>
             <h2>Record: <p id=record><?php if (isset($_COOKIE["record"])) {echo $_COOKIE["record"];} else {echo 0;}?></p></h2>
         </div>
         

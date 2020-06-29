@@ -1,8 +1,10 @@
 var click = document.getElementById("click")
+var average = document.getElementById("average")
 var display = document.getElementById("display")
 var record_el = document.getElementById("record")
 var clicks = 0
 var record = record_el.innerHTML
+var list_his = []
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
@@ -34,6 +36,15 @@ function update () {
         document.cookie = record
         console.log(document.cookie)
         setCookie("record", record, 3000)
+    }
+    if (clicks > 0) {
+        list_his.push(clicks)
+
+        let list_m = []
+        list_his.forEach(function (element, index) {
+            list_m.push(element)
+        })
+        average.innerHTML = Math.round(list_m.reduce((pv, cv) => pv + cv, 0) / list_his.length)
     }
 }
 
